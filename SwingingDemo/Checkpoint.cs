@@ -21,7 +21,6 @@ namespace SwingingDemo
 
             checkpointRect = new Rectangle(x, y, width, height);
         }
-
         public void IsCheckpointTouched()
         {
             foreach (Checkpoint c in Level1Screen.checkpoints)
@@ -34,10 +33,14 @@ namespace SwingingDemo
                     }
                     else
                     {
+                        //If player touches checkpoint in any level besides tutorial
+                        //Add the level integer
+                        //Call GameSetup for the new level 
+                        //"Respawn" them at the start of the new level
                         Level1Screen.level++;
                         Level1Screen.grappleOn = false;
-                        Level1Screen.stopwatch.Reset();
-                        Level1Screen.stopwatch.Start();
+                        Level1Screen.deathStopwatch.Reset();
+                        Level1Screen.deathStopwatch.Start();
                         Level1Screen.GameSetup();
                         break;
                     }

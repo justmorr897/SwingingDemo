@@ -10,34 +10,39 @@ using System.Windows.Forms;
 
 namespace SwingingDemo
 {
-    public partial class MenuScreen : UserControl
+    public partial class EndScreen : UserControl
     {
-        public MenuScreen()
+        public EndScreen()
         {
             InitializeComponent();
             Cursor.Show();
+            EndScreenStats();
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        public void EndScreenStats()
         {
-            //Call first level and load it, then change screen and start the gameStopwatch
-            Level1Screen.level = 1;
-            Level1Screen.GameSetup();
-            Form1.ChangeScreen(this, new Level1Screen());
-            Level1Screen.gameStopwatch.Start();
+            //Put player stats on labels for that run
+            deathLabel.Text += $" {Level1Screen.deaths}";
+            timeLabel.Text += $"\n {Math.Round(Level1Screen.gameStopwatchValue / 1000, 2)} Seconds";
         }
 
         private void tutorialButton_Click(object sender, EventArgs e)
         {
-            //Call tutorial
-            //Tutorial is level 0
-            Level1Screen.level = 0;
             Form1.ChangeScreen(this, new Level1Screen());
+            Level1Screen.level = 0;
+            Level1Screen.GameSetup();
+        }
+
+        private void playAgainButton_Click(object sender, EventArgs e)
+        {
+            Form1.ChangeScreen(this, new Level1Screen());
+            Level1Screen.level = 1;
+            Level1Screen.GameSetup();
+
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //end program
             Application.Exit();
         }
     }

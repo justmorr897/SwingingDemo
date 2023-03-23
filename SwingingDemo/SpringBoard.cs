@@ -10,6 +10,7 @@ namespace SwingingDemo
     public class SpringBoard
     {
         public int x, y;
+        //Constant width and height
         public int width = 100;
         public int height = 20;
         public Rectangle springboardRect;
@@ -23,6 +24,9 @@ namespace SwingingDemo
 
         public void IsSpringBoardTouched()
         {
+            //If player intersects with any springboard
+            //Add a lot to ySpeed to launch them in air
+            //Change booleans for game engine
             foreach (SpringBoard s in Level1Screen.springboards)
             {
                 if (Level1Screen.playerRec.IntersectsWith(s.springboardRect))
@@ -35,6 +39,9 @@ namespace SwingingDemo
                 }
             }
 
+            //If the player is in the air after bouncing on a springboard
+            //Don't let them swing until the player y is less than 150
+            //Prevents some bugs and improves gameplay
             if (Level1Screen.isSprung)
             {
                 Level1Screen.grappleToggle = false;

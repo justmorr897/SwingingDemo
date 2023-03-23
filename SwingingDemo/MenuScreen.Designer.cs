@@ -37,9 +37,10 @@
             // 
             this.startButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(800, 400);
+            this.startButton.Location = new System.Drawing.Point(533, 260);
+            this.startButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(300, 200);
+            this.startButton.Size = new System.Drawing.Size(200, 130);
             this.startButton.TabIndex = 1;
             this.startButton.Text = "START";
             this.startButton.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             this.tutorialButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tutorialButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutorialButton.Location = new System.Drawing.Point(800, 158);
+            this.tutorialButton.Location = new System.Drawing.Point(533, 103);
+            this.tutorialButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tutorialButton.Name = "tutorialButton";
-            this.tutorialButton.Size = new System.Drawing.Size(300, 200);
+            this.tutorialButton.Size = new System.Drawing.Size(200, 130);
             this.tutorialButton.TabIndex = 0;
             this.tutorialButton.Text = "TUTORIAL";
             this.tutorialButton.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(800, 645);
+            this.exitButton.Location = new System.Drawing.Point(533, 419);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(300, 200);
+            this.exitButton.Size = new System.Drawing.Size(200, 130);
             this.exitButton.TabIndex = 2;
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -71,15 +74,16 @@
             // 
             // MenuScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.tutorialButton);
             this.Controls.Add(this.startButton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MenuScreen";
-            this.Size = new System.Drawing.Size(1920, 1080);
+            this.Size = new System.Drawing.Size(1280, 702);
             this.ResumeLayout(false);
 
         }
