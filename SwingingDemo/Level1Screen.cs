@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using System.Media;
+using System.IO;
 
 namespace SwingingDemo
 {
@@ -62,7 +63,8 @@ namespace SwingingDemo
         public static Point clickPoint;
         public static Boolean leftArrowDown, rightArrowDown, upArrowDown, downArrowDown, spaceDown, aKeyDown, dkeyDown, grappleOn, hasIntersected, grappleToggle, isDead, isJump, isSprung, enterKeyDown;
 
-        public static int level, deaths, tutorialCounter, grappleCounter = 0;
+        public static int level = 4;
+        public static int deaths, tutorialCounter, grappleCounter = 0;
         public static int drawPoint = -100;
 
         public static double gameStopwatchValue;
@@ -71,14 +73,29 @@ namespace SwingingDemo
         int animationTicker, animationCounter = 0;
         int buildingSpeed = 10;
 
+        System.Windows.Media.MediaPlayer backMedia = new System.Windows.Media.MediaPlayer();
+
         public Level1Screen()
         {
             InitializeComponent();
             ListInitlialization();
             GameSetup();
-            //Hiding the cursor
+            //Hiding the cursor"C:
             Cursor.Hide();
+
+            string die = Application.StartupPath;
+            die = die.Substring(0, die.Length - 10);
+            backMedia.Open(new Uri(die + "\\Resources\\background_music.wav"));
+            backMedia.Play();
+            backMedia.MediaEnded += new EventHandler(backMedia_MediaEnded);
         }
+
+        private void backMedia_MediaEnded(object sender, EventArgs e)
+        {
+            backMedia.Stop();
+            backMedia.Play();
+        }
+
 
         public void ListInitlialization()
         {
@@ -86,9 +103,9 @@ namespace SwingingDemo
             
             brushes.Add(blueBrush);
             brushes.Add(blueBrush);
-            brushes.Add(greenBrush);
-            brushes.Add(pinkBrush);
             brushes.Add(orangeBrush);
+            brushes.Add(pinkBrush);
+            brushes.Add(blueBrush);
 
             //Adding running animation frames to lists
             rightFrame1 = new Bitmap(Properties.Resources._0);
@@ -216,6 +233,26 @@ namespace SwingingDemo
                 MakeObstacle(700, 500, 600, 100);
                 MakeCheckpoint(1280, 400); 
                 #endregion
+            }
+            else if (_level == 4)
+            {
+                MakeObstacle(-50, 200, 200, 100);
+                MakeObstacle(300, 500, 100, 300);
+                MakeObstacle(500, 0, 100, 400);
+                MakeObstacle(700, 500, 50, 100);
+                MakeObstacle(850, 500, 50, 100);
+                MakeObstacle(1000, 500, 50, 100);
+                MakeObstacle(1200, 500, 40, 100);
+                MakeObstacle(1400, 500, 30, 100);
+                MakeObstacle(1680, 500, 20, 100);
+                MakeSpringBoard(1800, 500);
+                MakeObstacle(2000, 200, 200, 800);
+                MakeSpringBoard(2350, 500);
+                MakeObstacle(2400, 150, 500, 100);
+                MakeSpringBoard(2600, 500);
+                MakeSpringBoard(2850, 500);
+                MakeObstacle(3050, 600, 600, 500);
+                MakeCheckpoint(3580, 500);
             }
         }
 
@@ -536,7 +573,7 @@ namespace SwingingDemo
             //If true, end gameStopwatch and store the value in a variable
             //Change screen to EndScreen
             //Stop game engine
-            if(level == 4)
+            if(level == 5)
             {
                 gameStopwatchValue = gameStopwatch.ElapsedMilliseconds;
                 gameStopwatch.Stop();
