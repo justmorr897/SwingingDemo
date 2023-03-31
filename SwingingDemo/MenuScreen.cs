@@ -21,7 +21,7 @@ namespace SwingingDemo
         private void startButton_Click(object sender, EventArgs e)
         {
             //Call first level and load it, then change screen and start the gameStopwatch
-            Level1Screen.level = 4;
+            Level1Screen.level = 1;
             Level1Screen.GameSetup();
             Form1.ChangeScreen(this, new Level1Screen());
             Level1Screen.gameStopwatch.Start();
